@@ -12,11 +12,11 @@ public class mainBalanceProblem {
 		long index = Long.parseLong(bf.readLine());
 		
 		String line = bf.readLine();
-		for (int i = 0;  i< arg.length; i++) {
+		for (int i = 0;  i< index; i++) {
 			if(problem.isBalance(line)) {
-				System.out.print("T");
+				System.out.println("T");
 			}else {
-				System.out.print("F");
+				System.out.println("F");
 			}
 			line = bf.readLine();
 		}

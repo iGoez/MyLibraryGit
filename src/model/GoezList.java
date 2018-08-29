@@ -97,9 +97,9 @@ public class GoezList <T> implements IList<T>, IQueue<T>, IStack<T>{
 	}
 
 	@Override
-	public Node pop() {
+	public Node<T> pop() {
 		
-		Node aux = end;
+		Node<T> aux = end;
 		end = end.getPrevious();
 		length--;
 		
