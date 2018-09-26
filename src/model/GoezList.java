@@ -1,5 +1,7 @@
 package model;
 
+import java.io.IOException;
+
 import TDA.IList;
 import TDA.IQueue;
 import TDA.IStack;
@@ -42,7 +44,7 @@ public class GoezList <T> implements IList<T>, IQueue<T>, IStack<T>{
 
 	@Override
 	public void add(T object) {
-		Node<T> node = new Node<T>(object, length);
+		Node<T> node = new Node<T>(object);
 		
 		if(head==null) {
 			head = node;
@@ -74,17 +76,19 @@ public class GoezList <T> implements IList<T>, IQueue<T>, IStack<T>{
 
 	@Override
 	public boolean isEmpty() {
-		return false;
+		return length==0;
 	}
 
 	@Override
 	public int length() {
 		return this.length;
 	}
+	
+	//Stack
 
 	@Override
 	public void push(T object) {
-		Node<T> node = new Node<T>(object, length);
+		Node<T> node = new Node<T>(object);
 		if(end==null) {
 			head = node;
 			end = node;
@@ -105,18 +109,49 @@ public class GoezList <T> implements IList<T>, IQueue<T>, IStack<T>{
 		
 		return aux;
 	}
+	
+	@Override
+	public Node<T> top() {
+		Node<T> temp;
+		
+		if (isEmpty()) {
+			temp = null;
+		} else {
+			temp = end;
+		}
+		return temp;
+	}
 
+	//QUEUE
+	
 	@Override
 	public void enqueue(T object) {
+		Node<T> newNode = new Node<T>(object);
+
+		if (this.isEmpty()) {
+			this.head = newNode;
+			this.end = newNode;
+			length = 1;
+		} else {
+			this.end.setNextItem(newNode);
+			this.end = newNode;
+			this.length++;
+		}
 	}
 
 	@Override
-	public Node front() {
-		return null;
+	public Node<T> front() {
+		return head;
 	}
 
 	@Override
-	public void dequeue() {
+	public Node<T> dequeue() {
+		Node<T> first = null;
+		first = head;
+		if (first != null) {
+			head = head.getNextItem();
+			length--;
+		}
+		return first;
 	}
-
 }

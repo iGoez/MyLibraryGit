@@ -5,11 +5,9 @@ public class Node<T>{
 	private T type;
 	private Node<T> nextItem;
 	private Node<T> previous;
-	private int identifier;
 	
-	public Node(T type, int identifier) {
+	public Node(T type) {
 		this.type = type;
-		this.identifier = identifier;
 	}
 
 	public T getType() {
@@ -34,13 +32,5 @@ public class Node<T>{
 
 	public void setPrevious(Node<T> previous) {
 		this.previous = previous;
-	}
-
-	public int getIdentifier() {
-		return identifier;
-	}
-
-	public void setIdentifier(int identifier) {
-		this.identifier = identifier;
 	}
 }

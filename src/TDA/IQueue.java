@@ -5,6 +5,8 @@ import model.Node;
 public interface IQueue<T>{
 
 	public void enqueue(T object);
-	public Node front();
-	public void dequeue();
+	public Node<T> front();
+	public Node<T> dequeue();
+	public boolean isEmpty();
+	public int length();
 }

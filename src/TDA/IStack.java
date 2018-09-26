@@ -5,5 +5,8 @@ import model.Node;
 public interface IStack<T>{
 
 	public void push(T object);
-	public Node pop();
+	public Node<T> pop();
+	public boolean isEmpty();
+	public int length();
+	public Node<T> top();
 }
